@@ -151,7 +151,7 @@ public class MediaPicker extends CordovaPlugin {
         String artist = "No Artist";
         String album = "No Album";
         String title = "No Title";
-        int duration = 0;
+        float duration = 0;
         String image = "No Image";
 
         MediaMetadataRetriever metaRetriver = new MediaMetadataRetriever();
@@ -168,7 +168,7 @@ public class MediaPicker extends CordovaPlugin {
             if (dur == null) {
                 duration = 0;
             } else {
-                duration = Integer.valueOf(dur);
+                duration = (float) (Integer.valueOf(dur) / 1000);
             }
             byte [] art = metaRetriver.getEmbeddedPicture();
             if (art == null) {
